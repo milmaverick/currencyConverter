@@ -9,7 +9,7 @@ $(document).ready(function()
         {
           this.value = this.value.replace(/[^0-9\.]/g, '');
         }
-          
+
         changeCurrency($(this).parent(), $('input:text').not(this).parent());
       });
       $('.custom-select').on('change', function ()
@@ -30,7 +30,6 @@ function changeCurrency(thisCurrencyDiv = $('#firstDiv'), otherCurrencyDiv= $('#
     let fromInput= Number(thisCurrencyDiv.find('.form-control').val());
     let toInput=  1 ;
 
-    //  console.log('thisCurrency'+ fromInput + ' otherCurrency='+ toInput +' VALUTEThis = '+from   +' VALUTEOther = '+to );
     if(!fromInput || isNaN(fromInput)){
       otherCurrencyDiv.find('.form-control').val('');
       thisCurrencyDiv.find('.form-control').val('');
