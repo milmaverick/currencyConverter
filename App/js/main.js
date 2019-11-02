@@ -9,9 +9,7 @@ $(document).ready(function()
         {
           this.value = this.value.replace(/[^0-9\.]/g, '');
         }
-          // if(this.value.match(/\./g).length > 1) {
-          //   this.value = this.value.substr(0, this.value.lastIndexOf("."));
-          // }
+          
         changeCurrency($(this).parent(), $('input:text').not(this).parent());
       });
       $('.custom-select').on('change', function ()
