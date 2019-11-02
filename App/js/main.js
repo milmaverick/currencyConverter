@@ -6,27 +6,32 @@ $(document).ready(function()
     {
       this.value = this.value.replace(/[^0-9\.]/g, '');
     }
-    changeCurrency()
+    changeCurrency($(this), $('input:text').not(this))
     .then(
       result => {
-        // первая функция-обработчик - запустится при вызове resolve
-      //  $('input:text').not(this).val(result);
-         alert(result); // result - аргумент resolve
+        $('input:text').not(this).val(result);// result - аргумент resolve
       },
       error => {
-        // вторая функция - запустится при вызове reject
         console.log("Rejected: " + error); // error - аргумент reject
       }
     );
   });
+  $('custom-select').on('change', function ()
+  {
+
+  });
+
 });
 
-function changeCurrency() {
+function changeCurrency(thisCurrency,otherCurrency) {
   return new Promise((resolve, reject) => {
-    let fromInput= Number($('#firstCurrency').val());
-    let toInput= Number($('#secondCurrency').val());
-    let from = $('#inputGroupSelect01').val();
-    let to = $('#inputGroupSelect02').val();
+
+    let from = thisCurrency.prev(".input-group-prepend").children().val() ;
+    let to = otherCurrency.prev(".input-group-prepend").children().val() ;
+    let fromInput= Number(thisCurrency.val());
+    let toInput=  1 ;
+    console.log('thisCurrency'+ fromInput + ' otherCurrency='+ toInput +'VALUTEThis = '+from   +' VALUTEOther = '+to );
+
     if(fromInput && toInput){
       var params =
       {

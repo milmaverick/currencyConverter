@@ -14,7 +14,7 @@ class IndexModel extends Model
       $xml =simplexml_load_file("http://www.cbr.ru/scripts/XML_daily.asp");
       $currencies = array();
       foreach ($xml->xpath('//Valute') as $valute) {
-         $_SESSION['data'][(string)$valute->CharCode] = (float)str_replace(',', '.', $valute->Value);
+        $_SESSION['data'][(string)$valute->CharCode] = (float)str_replace(',', '.', $valute->Value);
       }
       return  $_SESSION['data'];
     }
@@ -27,8 +27,9 @@ class IndexModel extends Model
       if ($key==$params['from']) $currency['fromValue']= $value*$params['fromInput'];
       if ($key==$params['to']) $currency['toValue']=$value*$params['toInput'];
     }
-
-   return $currency;
+    $currency['fromValue']=  $currency['fromValue']?  $currency['fromValue'] : 1 * $params['fromInput'];
+    $currency['toValue']=  $currency['toValue']?  $currency['toValue'] : 1 * $params['toInput'];
+    return $currency;
   }
 }
 

@@ -60,8 +60,8 @@
       <div class="input-group-prepend">
         <select class="custom-select" id="inputGroupSelect02">
           <option value="RUB">RUB</option>
-          <option value="USD" selected="selected">USD</option>
-          <option value="EUR">EUR</option>
+          <option value="USD" >USD</option>
+          <option value="EUR" selected="selected" >EUR</option>
           <option value="CHF">CHF</option>
           <option value="GBP">GBP</option>
           <option value="JPY">JPY</option>
