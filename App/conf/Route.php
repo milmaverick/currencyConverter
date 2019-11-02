@@ -17,22 +17,38 @@ class Routing {
 			$modelName = ucfirst($route[1]. "Model");
 		}
 
-		require_once CONTROLLER_PATH . $controllerName . ".php"; //IndexController.php
-		//	require_once MODEL_PATH . $modelName . ".php"; //IndexModel.php
-
 		if(isset($route[2]) && $route[2] !='') {
 			$action = $route[2];
 		}
 
-		$controller = new $controllerName();
-		$controller->$action();
+		if(file_exists(CONTROLLER_PATH . $controllerName . ".php"))
+		{
+			require_once CONTROLLER_PATH . $controllerName . ".php";
+		}
+		else
+		{
+			Routing::ErrorPage404();
+		}
+
+		$controller = new $controllerName;
+
+		if(method_exists($controller, $action))
+		{
+			$controller->$action();
+		}
+		else
+		{
+
+			Routing::ErrorPage404();
+		}
+
 
 	}
 
-	public function errorPage() {
-
-	}
-
+	function ErrorPage404()
+	{
+    echo "Not Found";
+  }
 }
 
 ?>

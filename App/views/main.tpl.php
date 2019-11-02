@@ -24,18 +24,12 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" id="login" data-toggle="modal" data-target="#exampleModal"
-          href="#">Админ. Панель</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="logOut" href="#">Выйти из АДМИНКИ</a>
-        </li>
+
       </ul>
     </div>
   </nav>
   <div class="container">
-    <div class="input-group mb-3">
+    <div class="input-group mb-3" id="firstDiv">
       <div class="input-group-prepend">
         <select class="custom-select" id="inputGroupSelect01">
           <option value="RUB">RUB</option>
@@ -54,9 +48,9 @@
           <option value="PLN">PLN</option>
         </select>
       </div>
-        <input type="text" class="form-control" id='firstCurrency' aria-label="Text input with dropdown button">
+      <input type="text" class="form-control" value="1" id='firstCurrency' aria-label="Text input with dropdown button">
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group mb-3" id="secondDiv">
       <div class="input-group-prepend">
         <select class="custom-select" id="inputGroupSelect02">
           <option value="RUB">RUB</option>
