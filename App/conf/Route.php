@@ -23,28 +23,25 @@ class Routing {
 
 		if(file_exists(CONTROLLER_PATH . $controllerName . ".php"))
 		{
-			require_once CONTROLLER_PATH . $controllerName . ".php";
+			require CONTROLLER_PATH . $controllerName . ".php";
+			$controller = new $controllerName;
+
+			if(method_exists($controller, $action))
+			{
+				$controller->$action();
+			}
+			else
+			{
+				Routing::ErrorPage404();
+			}
 		}
 		else
 		{
 			Routing::ErrorPage404();
 		}
-
-		$controller = new $controllerName;
-
-		if(method_exists($controller, $action))
-		{
-			$controller->$action();
-		}
-		else
-		{
-
-			Routing::ErrorPage404();
-		}
-
 
 	}
-
+	
 	function ErrorPage404()
 	{
     echo "Not Found";

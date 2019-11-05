@@ -1,4 +1,4 @@
 <?php
 
-require_once("App/conf/config.php");
+require("App/conf/config.php");
 ?>

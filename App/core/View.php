@@ -7,9 +7,5 @@ class View {
 		require $tpl;
 	}
 
-	// public function renderPartial($cnt, $pageData){
-	// 	require $cnt;
-	// }
-
 }
 ?>

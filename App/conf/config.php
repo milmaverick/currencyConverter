@@ -6,9 +6,8 @@ session_start();
 define("PATH", "App/core/");
 define("CONTROLLER_PATH", "App/controllers/");
 define("MODEL_PATH", "App/models/");
-define('LINK', 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5');
+define('LINK', 'http://www.cbr.ru/scripts/XML_daily.asp');
 
-require_once("Db.php");
 require_once("Route.php");
 require_once PATH. 'Model.php';
 require_once PATH. 'View.php';
