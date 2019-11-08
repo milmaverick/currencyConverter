@@ -7,12 +7,10 @@ class IndexModel extends Model
   {
     if (isset($_SESSION['data']))
     {
-      // code...
       return $_SESSION['data'];
     }
     else {
       if ($xml =simplexml_load_file(LINK)) {
-        // code...
         $_SESSION['data']['RUB']=1.00;
         foreach ($xml->xpath('//Valute') as $valute) {
           $_SESSION['data'][(string)$valute->CharCode] = (float)str_replace(',', '.', $valute->Value);
@@ -28,7 +26,6 @@ class IndexModel extends Model
   {
     $data= $this->getAllCurrency();
     if ($data) {
-      // code...
       foreach ($data as $key => $value) {
         if ($key==$params['from']) $currency['fromValue']= $value*$params['fromInput'];
         if ($key==$params['to']) $currency['toValue']=$value*$params['toInput'];

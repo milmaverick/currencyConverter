@@ -6,7 +6,6 @@ class Routing {
 
 		/*Контроллер и action по умолчанию*/
 		$controllerName = "IndexController";
-		$modelName = "IndexModel";
 		$action = "index";
 
 		$route = explode("/", $_SERVER['REQUEST_URI']);
@@ -14,7 +13,6 @@ class Routing {
 		/*Определяем контроллер*/
 		if($route[1] != '') {
 			$controllerName = ucfirst($route[1]. "Controller");
-			$modelName = ucfirst($route[1]. "Model");
 		}
 
 		if(isset($route[2]) && $route[2] !='') {
@@ -32,19 +30,19 @@ class Routing {
 			}
 			else
 			{
-				Routing::ErrorPage404();
+				Routing::ErrorPage404('action');
 			}
 		}
 		else
 		{
-			Routing::ErrorPage404();
+			Routing::ErrorPage404('controller');
 		}
 
 	}
-	
+
 	function ErrorPage404()
 	{
-    echo "Not Found";
+    echo "Not Found ". $error;
   }
 }
 
